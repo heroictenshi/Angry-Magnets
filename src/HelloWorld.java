@@ -3,14 +3,13 @@
  */
 public class HelloWorld
 {
-    public void printText ()
+    public static void printText ()
     {
         System.out.println("Cake");
     }
 
     public static void main (String [] args)
     {
-        HelloWorld cake = new HelloWorld();
-        cake.printText();
+      HelloWorld.printText();
     }
 }
