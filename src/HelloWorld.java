@@ -8,7 +8,6 @@ public class HelloWorld
         System.out.println("Cake");
     }
 
-
     public static void main (String [] args)
     {
         HelloWorld cake = new HelloWorld();
