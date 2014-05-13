@@ -20,9 +20,10 @@ public class MainMenu extends JPanel
     public MainMenu ()
     {
         super(group);
-        createFrame ();
-        newGameIcon =
-        newGame = new JButton())
+        createFrame();
+        newGameIcon = new ImageIcon("Cake.gif");
+        newGame = new JButton();
+
     }
 
 
