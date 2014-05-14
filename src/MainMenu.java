@@ -1,43 +1,49 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Jeffry Lien on 12/05/2014.
  */
 public class MainMenu extends JPanel
 {
-    GroupLayout group = new GroupLayout(this);
+    FlowLayout gridbag = new FlowLayout();
+    GridBagConstraints constraints = new GridBagConstraints();
+
+    ImageIcon newGameIcon = new ImageIcon();
+    ImageIcon quitGameIcon = new ImageIcon();
+    ImageIcon highScoresIcon = new ImageIcon();
+    ImageIcon instructionsIcon = new ImageIcon();
+    ImageIcon helpIcon = new ImageIcon();
+
     JButton newGame;
-    ImageIcon newGameIcon;
     JButton quitGame;
-    ImageIcon quitGameIcon;
     JButton highScores;
-    ImageIcon highScoresIcon;
     JButton instructions;
-    ImageIcon instructionsIcon;
+
     JButton help;
-    ImageIcon helpIcon;
+
 
     public MainMenu ()
     {
-        super(group);
-        createFrame();
-        newGameIcon = new ImageIcon("Cake.gif");
-        newGame = new JButton();
+        setLayout(gridbag);
+        constraints.gridx = 1;
+        constraints.gridy = 5;
 
+        instructions = new JButton();
+        newGame = new JButton("Cake");
+        quitGame = new JButton();
+        highScores = new JButton();
+        help = new JButton();
+
+        addToPanel();
     }
 
-
-    public void createFrame ()
+    public void addToPanel()
     {
-        JFrame frame = new JFrame("Angry Magnets");
-        frame.setSize(800,600);
-        frame.setVisible(true);
-        frame.setResizable(false);
-        frame.add (new MainMenu());
-    }
-
-    public static void main (String [] args)
-    {
-        new MainMenu();
+        add (newGame);
+        add (instructions);
+        add(highScores);
+        add (help);
+        add (quitGame);
     }
 }
