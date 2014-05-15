@@ -6,10 +6,9 @@ import java.awt.*;
  */
 public class MainMenu extends JPanel
 {
-    FlowLayout gridbag = new FlowLayout();
-    GridBagConstraints constraints = new GridBagConstraints();
-
-    ImageIcon newGameIcon = new ImageIcon();
+    GroupLayout group = new GroupLayout(this);
+  
+    ImageIcon newGameIcon = new ImageIcon("2cake.png");
     ImageIcon quitGameIcon = new ImageIcon();
     ImageIcon highScoresIcon = new ImageIcon();
     ImageIcon instructionsIcon = new ImageIcon();
@@ -25,12 +24,12 @@ public class MainMenu extends JPanel
 
     public MainMenu ()
     {
-        setLayout(gridbag);
-        constraints.gridx = 1;
-        constraints.gridy = 5;
-
+        setLayout(group);
+        group.setHonorsVisibility(true);
+        group.setAutoCreateGaps(true);
+        group.setAutoCreateContainerGaps(true);
         instructions = new JButton();
-        newGame = new JButton("Cake");
+        newGame = new JButton(newGameIcon);
         quitGame = new JButton();
         highScores = new JButton();
         help = new JButton();
@@ -40,10 +39,22 @@ public class MainMenu extends JPanel
 
     public void addToPanel()
     {
-        add (newGame);
-        add (instructions);
-        add(highScores);
-        add (help);
-        add (quitGame);
+      group.setVerticalGroup (group.createSequentialGroup()
+                                .addComponent (newGame)
+                                .addComponent (instructions)
+                                .addComponent (highScores)
+                                .addComponent (help)
+                                .addComponent (quitGame));
+      group.setHorizontalGroup (group.createParallelGroup ()
+                                .addComponent (newGame)
+                                .addComponent (instructions)
+                                .addComponent (highScores)
+                                .addComponent (help)
+                                .addComponent (quitGame));
+    }
+    
+    public void playMusic()
+    {
+      Audioapp.Sound bgm = new Audioapp.Sound ("th08_19.mid");
     }
 }
