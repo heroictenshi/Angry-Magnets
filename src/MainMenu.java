@@ -52,9 +52,4 @@ public class MainMenu extends JPanel
                                 .addComponent (help)
                                 .addComponent (quitGame));
     }
-    
-    public void playMusic()
-    {
-      Audioapp.Sound bgm = new Audioapp.Sound ("th08_19.mid");
-    }
 }
