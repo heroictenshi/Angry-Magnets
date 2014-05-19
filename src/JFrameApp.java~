@@ -2,10 +2,7 @@
 import javax.swing.*;
 
 /**
- * The "JFrameApp" class. (WIP) At the moment, creates a new instance of the main
- * menu ("MainMenu" class) and adds it to a new JFrame, may be changed in functionality later.
- * 
- * @author Jeffry Lien
+ * Created by Jeffry Lien on 13/05/2014.
  */
 public class JFrameApp extends JFrame
 {

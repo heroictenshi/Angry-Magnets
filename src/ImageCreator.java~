@@ -1,0 +1,128 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
+
+/**
+ * This class deals with the basic output of graphics onto the screen. It is responsible for retrieving images,
+ * resizing or modifying them as appropriate and displaying them onto the screen.
+ * 
+ * @author Ronald Perlas
+ * @version 1.00 16 May 2014
+ */
+public class ImageCreator extends Component implements KeyListener
+{
+          
+    BufferedImage img;
+    JFrame f;
+    int x = 100;
+    int y = 100;
+
+    /**
+     * This method draws an image onto the container with predetermined coordinates and size.
+     */
+    public void paint(Graphics g) 
+    {
+        super.paint(g);
+        g.drawImage(img, x, y, 200, 200, null);
+    }
+
+    /**
+     * This constructor uses the ImageIO class to read and store images.
+     */
+    public LoadImageApp() 
+    {
+      try 
+      {
+        img = ImageIO.read(new File("superHQ2.jpg"));
+      } catch (IOException e) 
+      {
+      }
+    }
+    
+    /**
+     * Detects and processes pressed keys.
+     * @param e KeyEevent Stores the key pressed by the user.
+     */
+    public void keyPressed(KeyEvent e) 
+    {
+      if (e.getKeyCode() == KeyEvent.VK_RIGHT ) 
+      {
+        x+= 30;
+        System.out.println (x);
+        repaint();
+      } 
+      else if (e.getKeyCode() == KeyEvent.VK_LEFT ) 
+      {
+        //Left arrow key code
+      } 
+      else if (e.getKeyCode() == KeyEvent.VK_UP ) 
+      {
+        //Up arrow key code
+      } 
+      else if (e.getKeyCode() == KeyEvent.VK_DOWN ) 
+      {
+        //Down arrow key code
+      }  
+      repaint();
+    }
+    
+    /**
+     * Detects and processes released keys.
+     * @param e KeyEevent Stores the key released by the user.
+     */
+    public void keyReleased (KeyEvent e)
+    {
+    }
+    
+    /**
+     * Detects and processes typed keys.
+     * @param e KeyEevent Stores the key typed by the user.
+     */
+    public void keyTyped (KeyEvent e)
+    {
+    }
+
+    /**
+     * Returns the preferred image dimensions.
+     */
+    public Dimension getPreferredSize() 
+    {
+      if (img == null) 
+      {
+        return new Dimension(100,100);
+      } else 
+      {
+        return new Dimension(img.getWidth(null), img.getHeight(null));
+      }
+    }
+    
+    /**
+     * Creates a new JFrame to output images onto.
+     * @param f Reference References the JFrame class.
+     */
+    public void frameCreator ()
+    {
+      f = new JFrame("Load Image Sample");
+      f.addKeyListener (this);
+      f.addWindowListener(new WindowAdapter(){
+        public void windowClosing(WindowEvent e) {
+          System.exit(0);
+        }
+      });
+      f.add(new LoadImageApp());
+      f.pack();
+      f.setSize (615,435);       
+      f.setVisible(true);
+    }
+
+
+    // Main Method
+    public static void main(String[] args) 
+    {
+      LoadImageApp a = new LoadImageApp();
+      a.frameCreator();
+    }
+}

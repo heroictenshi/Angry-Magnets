@@ -3,23 +3,13 @@ import javax.swing.*;
 import java.io.*;
 import java.net.*;
 
-/**
- * The "AudioApp" class is able to play sound files such as .wav and .mid files.
- * TO BE IMPLEMENTED (WIP)
- * 
- * @author WolfCoder of dreamincode.net
- */
+//http://www.dreamincode.net/forums/topic/14083-incredibly-easy-way-to-play-sounds/
+
 public class Audioapp extends JApplet
 {
   public class Sound
   {
-    /**
-     * AudioClip - Clip that contains the sound to be played.
-     */
     private AudioClip song;
-    /**
-     * songPath - Location of the sound.
-     */
     private URL songPath;
     
     Sound (String filename)
@@ -32,25 +22,16 @@ public class Audioapp extends JApplet
       catch (Exception e){}
     }
     
-    /**
-     * Loops the sound that is in the AudioClip.
-     */
     public void playSound ()
     {
       song.loop();
     }
     
-    /**
-     * Stops the sound that is being looped by playSound().
-     */
     public void stopSound()
     {
       song.stop();
     }
     
-    /**
-     * Plays the sound in the AudioClip once.
-     */
     public void playSoundOnce()
     {
       song.play();
